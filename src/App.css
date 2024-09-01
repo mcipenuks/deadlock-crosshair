@@ -1,0 +1,16 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1179px) {
+    .container {
+        max-width: 100% !important;
+    }
+}
+
+.preview-image {
+    background-image: url("images/example_1.png");
+    background-size: cover;
+    background-position: center center;
+}
