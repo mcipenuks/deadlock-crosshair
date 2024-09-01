@@ -18,7 +18,7 @@ export default function Editor() {
     };
 
     return (
-        <div className="editor container h-screen flex justify-center items-center">
+        <div className="editor container min-h-screen flex justify-center items-center">
             <Card fullWidth>
                 <CardBody className="p-4">
                     <Preview config={crosshairConfig} />
