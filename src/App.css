@@ -10,7 +10,7 @@
 }
 
 .preview-image {
-    background-image: url("images/example_1.png");
+    background-image: url("/images/example_1.png");
     background-size: cover;
     background-position: center center;
 }

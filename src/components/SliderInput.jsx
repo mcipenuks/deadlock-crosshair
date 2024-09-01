@@ -29,11 +29,15 @@ export default function SliderInput({
                             type="number"
                             aria-label="Temperature value"
                             value={value}
+                            min={min}
                             max={max}
                             onChange={(e) => {
                                 const value = e.target.value;
-                                console.log(value, name);
-                                onSliderChange(Number(value), name);
+                                if (value > max) {
+                                    onSliderChange(max, name);
+                                } else {
+                                    onSliderChange(Number(value), name);
+                                }
                             }}
                         />
                     </output>
