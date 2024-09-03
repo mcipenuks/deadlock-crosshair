@@ -1,14 +1,12 @@
-export default function PreviewCrosshair({ config }) {
-    const crosshairColor = `rgba(${config.citadel_crosshair_color_r}, ${config.citadel_crosshair_color_g}, ${config.citadel_crosshair_color_b})`;
-    const dotColor = `rgba(${config.citadel_crosshair_color_r}, ${config.citadel_crosshair_color_g}, ${config.citadel_crosshair_color_b}, ${config.citadel_crosshair_dot_opacity})`;
-    const showOutline = config.citadel_crosshair_pip_border;
-    const noWidthOrHeight =
-        config.citadel_crosshair_pip_width === 0 ||
-        config.citadel_crosshair_pip_height === 0;
+export default function PreviewCrosshair({ crosshair }) {
+    const crosshairColor = `rgba(${crosshair.colorR}, ${crosshair.colorG}, ${crosshair.colorB})`;
+    const dotColor = `rgba(${crosshair.colorR}, ${crosshair.colorG}, ${crosshair.colorB}, ${crosshair.dotOpacity})`;
+    const showOutline = crosshair.linesBorder;
+    const noWidthOrHeight = crosshair.linesWidth === 0 || crosshair.linesHeight === 0;
 
     const LINE_GAP_OFFSET = 28;
     const LINE_GAP_SIZE = 6;
-    const LINE_GAP = config.citadel_crosshair_pip_gap * LINE_GAP_SIZE + LINE_GAP_OFFSET;
+    const LINE_GAP = crosshair.linesGap * LINE_GAP_SIZE + LINE_GAP_OFFSET;
 
     return (
         <div className="relative flex justify-center items-center">
@@ -21,50 +19,50 @@ export default function PreviewCrosshair({ config }) {
             >
                 <div
                     id="bottom"
-                    className="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    className="line absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2"
                     style={{
                         display: noWidthOrHeight ? "none" : "initial",
-                        width: config.citadel_crosshair_pip_width,
-                        height: config.citadel_crosshair_pip_height,
+                        width: crosshair.linesWidth,
+                        height: crosshair.linesHeight,
                         background: crosshairColor,
                         border: showOutline ? "1px solid black" : "",
-                        opacity: config.citadel_crosshair_pip_opacity,
+                        opacity: crosshair.linesOpacity,
                     }}
                 ></div>
                 <div
                     id="right"
-                    className="absolute left-full top-1/2 -translate-y-1/2 -translate-x-1/2"
+                    className="line absolute left-full top-1/2 -translate-y-1/2 -translate-x-1/2"
                     style={{
                         display: noWidthOrHeight ? "none" : "initial",
-                        width: config.citadel_crosshair_pip_height,
-                        height: config.citadel_crosshair_pip_width,
+                        width: crosshair.linesHeight,
+                        height: crosshair.linesWidth,
                         background: crosshairColor,
                         border: showOutline ? "1px solid black" : "",
-                        opacity: config.citadel_crosshair_pip_opacity,
+                        opacity: crosshair.linesOpacity,
                     }}
                 ></div>
                 <div
                     id="left"
-                    className="absolute right-full top-1/2 -translate-y-1/2 translate-x-1/2"
+                    className="line absolute right-full top-1/2 -translate-y-1/2 translate-x-1/2"
                     style={{
                         display: noWidthOrHeight ? "none" : "initial",
-                        width: config.citadel_crosshair_pip_height,
-                        height: config.citadel_crosshair_pip_width,
+                        width: crosshair.linesHeight,
+                        height: crosshair.linesWidth,
                         background: crosshairColor,
                         border: showOutline ? "1px solid black" : "",
-                        opacity: config.citadel_crosshair_pip_opacity,
+                        opacity: crosshair.linesOpacity,
                     }}
                 ></div>
                 <div
                     id="top"
-                    className="absolute bottom-full left-1/2 -translate-x-1/2 translate-y-1/2"
+                    className="line absolute bottom-full left-1/2 -translate-x-1/2 translate-y-1/2"
                     style={{
                         display: noWidthOrHeight ? "none" : "initial",
-                        width: config.citadel_crosshair_pip_width,
-                        height: config.citadel_crosshair_pip_height,
+                        width: crosshair.linesWidth,
+                        height: crosshair.linesHeight,
                         background: crosshairColor,
                         border: showOutline ? "1px solid black" : "",
-                        opacity: config.citadel_crosshair_pip_opacity,
+                        opacity: crosshair.linesOpacity,
                     }}
                 ></div>
                 <div
@@ -75,7 +73,7 @@ export default function PreviewCrosshair({ config }) {
                         className="w-[3px] h-[3px] rounded-full box-content"
                         style={{
                             background: dotColor,
-                            boxShadow: `0 0 0 3px rgba(0,0,0,${config.citadel_crosshair_dot_outline_opacity})`,
+                            boxShadow: `0 0 0 3px rgba(0,0,0,${crosshair.dotBorderOpacity})`,
                         }}
                     ></div>
                 </div>

@@ -1,10 +1,9 @@
 import SliderInput from "./SliderInput";
 import { Snippet, Switch } from "@nextui-org/react";
-import { objectToConfig } from "../utils/object-to-config";
 
-export default function EditorControls({ crosshairConfig, handleInputChange }) {
+export default function EditorControls({ crosshair, handleInputChange }) {
     const handleOnCopy = () => {
-        const text = objectToConfig(crosshairConfig);
+        const text = crosshair.getConfig();
         navigator.clipboard.writeText(text);
     };
 
@@ -14,8 +13,8 @@ export default function EditorControls({ crosshairConfig, handleInputChange }) {
                 <div className="text-2xl mb-4">Color</div>
                 <div className="mb-4">
                     <SliderInput
-                        value={crosshairConfig.citadel_crosshair_color_r}
-                        name="citadel_crosshair_color_r"
+                        value={crosshair.colorR}
+                        name="colorR"
                         label="Red"
                         max={255}
                         onSliderChange={handleInputChange}
@@ -23,8 +22,8 @@ export default function EditorControls({ crosshairConfig, handleInputChange }) {
                 </div>
                 <div className="mb-4">
                     <SliderInput
-                        value={crosshairConfig.citadel_crosshair_color_g}
-                        name="citadel_crosshair_color_g"
+                        value={crosshair.colorG}
+                        name="colorG"
                         label="Green"
                         max={255}
                         onSliderChange={handleInputChange}
@@ -32,8 +31,8 @@ export default function EditorControls({ crosshairConfig, handleInputChange }) {
                 </div>
                 <div className="mb-4">
                     <SliderInput
-                        value={crosshairConfig.citadel_crosshair_color_b}
-                        name="citadel_crosshair_color_b"
+                        value={crosshair.colorB}
+                        name="colorB"
                         label="Blue"
                         max={255}
                         onSliderChange={handleInputChange}
@@ -41,8 +40,8 @@ export default function EditorControls({ crosshairConfig, handleInputChange }) {
                 </div>
                 <div>
                     <SliderInput
-                        value={crosshairConfig.citadel_crosshair_pip_opacity}
-                        name="citadel_crosshair_pip_opacity"
+                        value={crosshair.linesOpacity}
+                        name="linesOpacity"
                         label="Lines Opacity"
                         step={0.1}
                         min={0}
@@ -55,8 +54,8 @@ export default function EditorControls({ crosshairConfig, handleInputChange }) {
                 <div className="text-2xl mb-4">Lines</div>
                 <div className="mb-4">
                     <SliderInput
-                        value={crosshairConfig.citadel_crosshair_pip_width}
-                        name="citadel_crosshair_pip_width"
+                        value={crosshair.linesWidth}
+                        name="linesWidth"
                         label="Width"
                         max={500}
                         onSliderChange={handleInputChange}
@@ -64,8 +63,8 @@ export default function EditorControls({ crosshairConfig, handleInputChange }) {
                 </div>
                 <div className="mb-4">
                     <SliderInput
-                        value={crosshairConfig.citadel_crosshair_pip_height}
-                        name="citadel_crosshair_pip_height"
+                        value={crosshair.linesHeight}
+                        name="linesHeight"
                         label="Height"
                         max={500}
                         onSliderChange={handleInputChange}
@@ -73,8 +72,8 @@ export default function EditorControls({ crosshairConfig, handleInputChange }) {
                 </div>
                 <div className="mb-8">
                     <SliderInput
-                        value={crosshairConfig.citadel_crosshair_pip_gap}
-                        name="citadel_crosshair_pip_gap"
+                        value={crosshair.linesGap}
+                        name="linesGap"
                         label="Gap"
                         min={-3}
                         max={20}
@@ -83,10 +82,8 @@ export default function EditorControls({ crosshairConfig, handleInputChange }) {
                 </div>
                 <Switch
                     color="default"
-                    defaultSelected={crosshairConfig.citadel_crosshair_pip_border}
-                    onValueChange={(value) =>
-                        handleInputChange(value, "citadel_crosshair_pip_border")
-                    }
+                    defaultSelected={crosshair.linesBorder}
+                    onValueChange={(value) => handleInputChange(value, "linesBorder")}
                 >
                     Outline
                 </Switch>
@@ -95,8 +92,8 @@ export default function EditorControls({ crosshairConfig, handleInputChange }) {
                 <div className="text-2xl mb-4">Dot</div>
                 <div className="mb-4">
                     <SliderInput
-                        value={crosshairConfig.citadel_crosshair_dot_opacity}
-                        name="citadel_crosshair_dot_opacity"
+                        value={crosshair.dotOpacity}
+                        name="dotOpacity"
                         label="Dot Opacity"
                         step={0.1}
                         min={0}
@@ -106,8 +103,8 @@ export default function EditorControls({ crosshairConfig, handleInputChange }) {
                 </div>
                 <div>
                     <SliderInput
-                        value={crosshairConfig.citadel_crosshair_dot_outline_opacity}
-                        name="citadel_crosshair_dot_outline_opacity"
+                        value={crosshair.dotBorderOpacity}
+                        name="dotBorderOpacity"
                         label="Dot Outline Opacity"
                         step={0.1}
                         min={0}
