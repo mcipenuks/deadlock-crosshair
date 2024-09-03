@@ -26,8 +26,8 @@ export default class Crosshair {
     getConfigMap() {
         return {
             citadel_crosshair_color_r: this.colorR,
-            citadel_crosshair_color_b: this.colorG,
-            citadel_crosshair_color_g: this.colorB,
+            citadel_crosshair_color_b: this.colorB,
+            citadel_crosshair_color_g: this.colorG,
             citadel_crosshair_pip_border: this.linesBorder,
             citadel_crosshair_pip_opacity: this.linesOpacity,
             citadel_crosshair_pip_width: this.linesWidth,
