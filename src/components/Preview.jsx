@@ -22,7 +22,7 @@ export default function Preview({ crosshair }) {
                                 }`}
                                 onClick={() => setPreviewBg(bg)}
                             >
-                                BG
+                                {`B${bg}`}
                             </div>
                         ))}
                     </div>
