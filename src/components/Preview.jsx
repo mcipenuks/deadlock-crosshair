@@ -15,7 +15,7 @@ export default function Preview({ crosshair }) {
                         {bgs.map((bg) => (
                             <div
                                 key={bg}
-                                className={`preview-thumbnail w-8 h-8 bg-black rounded-lg cursor-pointer border-2 flex justify-center items-center text-[10px] ${
+                                className={`preview-thumbnail w-8 h-8 bg-black rounded-lg cursor-pointer border-2 flex justify-center items-center text-[10px] transition-all hover:border-purple-500 ${
                                     bg === previewBg
                                         ? "border-purple-500"
                                         : "border-white"
