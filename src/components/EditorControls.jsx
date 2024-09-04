@@ -7,6 +7,11 @@ export default function EditorControls({ crosshair, handleInputChange }) {
         navigator.clipboard.writeText(text);
     };
 
+    const handleCopyClick = () => {
+        const button = document.querySelector(".copy-btn button");
+        button.click();
+    };
+
     return (
         <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
             <div>
@@ -27,6 +32,7 @@ export default function EditorControls({ crosshair, handleInputChange }) {
                         label="Green"
                         max={255}
                         onSliderChange={handleInputChange}
+                        G
                     />
                 </div>
                 <div className="mb-4">
@@ -120,6 +126,8 @@ export default function EditorControls({ crosshair, handleInputChange }) {
                         variant="bordered"
                         fullWidth
                         onCopy={handleOnCopy}
+                        onClick={handleCopyClick}
+                        className="copy-btn cursor-pointer transition-all hover:border-white"
                     >
                         Copy config
                     </Snippet>
